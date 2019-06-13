@@ -37,7 +37,9 @@ public class RealmService {
         if (StringUtils.isEmpty(realmDto.getName())) {
             throw new InvalidRealmNameException();
         }
-
+        if (realmDto.getName()== null) {
+            throw new InvalidRealmNameException();
+        }
 
         String key = genereateNewKey(realmDto.getName());
         Realm realm = new Realm(realmDto.getName(), realmDto.getDescription(), key);
@@ -45,6 +47,8 @@ public class RealmService {
             return realmRepository.save(realm);
         } catch (DataIntegrityViolationException ex) {
             throw new DuplicateRealmNameException();
+        }catch (InvalidRealmNameException ex) {
+            throw new InvalidRealmNameException();
         }
     }
 

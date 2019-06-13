@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * Created by m.karandish on 6/13/2019.
  */
@@ -29,7 +31,7 @@ public class RealApiController {
 
     @PostMapping
     @ResponseStatus( HttpStatus.CREATED )
-    public Realm save(@RequestBody RealmDto realmDto) throws DuplicateRealmNameException, InvalidRealmNameException {
+    public Realm save(@RequestBody @Valid RealmDto realmDto) throws DuplicateRealmNameException, InvalidRealmNameException {
         return realmService.save(realmDto);
     }
 }

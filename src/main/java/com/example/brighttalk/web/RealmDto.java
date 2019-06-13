@@ -1,7 +1,8 @@
 package com.example.brighttalk.web;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by m.karandish on 6/13/2019.
@@ -9,12 +10,12 @@ import javax.validation.constraints.Min;
 public class RealmDto {
 
 
-    @Min(0)
-    @Max(255)
+    @NotNull
+    @Size(max = 255)
     private String name;
 
-    @Min(0)
-    @Max(255)
+    @NotEmpty
+    @Size(max = 255)
     private String description;
 
     public RealmDto() {

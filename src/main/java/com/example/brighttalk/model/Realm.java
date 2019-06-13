@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by m.karandish on 6/13/2019.
  */
 @Entity
-@Table(name = "USER_REALM", uniqueConstraints = {@UniqueConstraint(columnNames = "name", name = "uniqueNameConstraint")})
+@Table(name = "REALM", uniqueConstraints = {@UniqueConstraint(columnNames = "name", name = "uniqueNameConstraint")})
 @JacksonXmlRootElement
 public class Realm {
     @Id
