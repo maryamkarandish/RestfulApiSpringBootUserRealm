@@ -4,7 +4,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 /**
- * Created by m.karandish on 6/12/2019.
+ * Created by m.karandish on 6/13/2019.
  */
 public class RealmDto {
 
