@@ -74,11 +74,11 @@ public class RealmApiControllerTest {
 
 
     private RealmDto createRealmDto(String id) {
-        return new RealmDto("name_" + id, "description_" + id);
+        return new RealmDto("name_" + id, "descriptionTest");
     }
 
     private Realm createRealm(String id) {
-        Realm realm = new Realm("name_" + id, "description_" + id, "key_" + id);
+        Realm realm = new Realm("name_" + id, "descriptionTest", "key_" + id);
         realm.setId(Long.valueOf(id));
         return realm;
     }
@@ -167,7 +167,7 @@ public class RealmApiControllerTest {
    @Test
     public void saveWithNullNameReturnInvalidRealmNameError() throws Exception {
         String id = "5969";
-        RealmDto realmDto = new RealmDto(null, "description_" + id);
+        RealmDto realmDto = new RealmDto(null, "descriptionTest" + id);
         given(realmService.save(realmDto)).willThrow(InvalidRealmNameException.class);
          mockMvc.perform(post(REALM_URL)
                 .content(createRequestBody(realmDto))
