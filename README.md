@@ -1,25 +1,31 @@
-# LoanApplication version 1.0  
-### Date : 09/06/2019
+# UserRealm Application version 1.0  
+### Date : 14/06/2019
 
 ## Description
 -------------------
 
-* This test is simulation of simple Quote servivce.
-* We have a service which consists of different Lenders which have availbale balance to lend with a specific rate. The service is lending money based on borrower request and the amount of loan should be the sum of lenders available balance with the lowest rate. Lowest rate is essential becuase this service should work in a competitive business.
-* The application includes testing all servicing methods.
-* We have a csv file to initially set up input data. 
-* The application get a csv file and a Loan requested amount then calculate the TotalRepayment,MonthlyRepayment and InterestRate successfully.
-* It checks all the input, that is getting from the csv file.
-* It also checks the requested amount's range and value.
+* The test is designed to provide an indicator of technical level.
+* the assignment is looking for the right approach and appropriate considerations, not a business-ready solution. 
+* The application should be implemented as a Java web-app using Spring Boot RESTful MVC, store data in a relational database, and be deployable to Tomcat. 
+* The APIs support the creation and retrieval of representations of a User Realm.
+* A User Realm is a context for the registration and authentication of a user, which comprises a unique integer identifier, a unique name, an (encryption) key and a description.
+
 
 ## Assumptions
 -------------------
-* We are not allowed to assign any zero or negative value to the balance of the Lenders.
-* Also we are not allowed to assign any zero or negative value to the rate of the Lenders' balance.
-* _Assumption_ : In case of any negative result, we will send an alarming message to the user and stop adding the lender to the list of lenders.
-* Lenders have name and balance in addition to rate, and the name is mandatory for the customer in this application. 
-* _Assumption_ : We assumed that in case of equal rates, sorted the lender list based on lower available balance of the lenders.
-* _Assumption_ : we assume that all the decimal values rounded UP
+For the purposes of this exercise all that is required is to implement APIs to create (store)
+and retrieve the entity:
+● JSON and XML representations must be supported.
+● No security (authentication or authorisation) checks are required on the APIs. The
+code for generating the encryption key can be stubbed, returning any string.
+
+* If the user requested realm id is not an integer value it should throw error.
+* If the mandatory realm name is not supplied it should throw error
+
+## Purposes
+-------------------
+- _Create Realm_ Creates a new realm including the generation of an encryption key. 
+- _Get Realm_ Returns the details of an individual realm, identified by its unique id.
 
 ## About Project
 ---------------------------
@@ -27,7 +33,8 @@
 - It is developed by Java language
 - The project uses the JDK 8 
 - It is essencial to install Maven before running the project
-- It is tested with Junit 4.11 or higher
+- it is deployable with Apache tomcat 9
+- it is tested with unit testing with the coverage of 100% for the classes and 70% for the methods.
 
 for more information you can contact:
 --------------------------------------
