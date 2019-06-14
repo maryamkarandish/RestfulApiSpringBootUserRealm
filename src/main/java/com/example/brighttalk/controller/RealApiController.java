@@ -23,12 +23,26 @@ public class RealApiController {
     private RealmService realmService;
 
 
+    /**
+     * This service get realm user based on specific id
+     * @param id
+     * @return
+     * @throws RealmNotFoundException
+     * @throws InvalidArgumentException
+     */
     @GetMapping("/{id}")
     @ResponseStatus( HttpStatus.OK )
     public Realm get(@PathVariable("id") String id) throws RealmNotFoundException, InvalidArgumentException {
         return realmService.get(id);
     }
 
+    /**
+     * This service create a new realm and save it to database
+     * @param realmDto
+     * @return
+     * @throws DuplicateRealmNameException
+     * @throws InvalidRealmNameException
+     */
     @PostMapping
     @ResponseStatus( HttpStatus.CREATED )
     public Realm save(@RequestBody @Valid RealmDto realmDto) throws DuplicateRealmNameException, InvalidRealmNameException {

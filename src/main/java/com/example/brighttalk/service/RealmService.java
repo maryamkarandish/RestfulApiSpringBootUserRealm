@@ -24,6 +24,11 @@ public class RealmService {
     @Autowired
     private RealmRepository realmRepository;
 
+    /**
+     * this method have tried to fetch a realm based on an Id
+     * @param id
+     * @return
+     */
     public Realm get(final String id) {
         try {
             Long idNumber = Long.valueOf(id);
@@ -33,10 +38,18 @@ public class RealmService {
         }
     }
 
+    /**
+     * This method add a realm to the database after passing the validations
+     * @param realmDto
+     * @return
+     */
     public Realm save(final RealmDto realmDto) {
+
+        // checking the name is not empty
         if (StringUtils.isEmpty(realmDto.getName())) {
             throw new InvalidRealmNameException();
         }
+        // checking the name is not null
         if (realmDto.getName()== null) {
             throw new InvalidRealmNameException();
         }
@@ -52,6 +65,11 @@ public class RealmService {
         }
     }
 
+    /**
+     * This method generated new Key to set in the Key field in Realm Entity
+     * @param name
+     * @return
+     */
     public String genereateNewKey(String name) {
         return UUID.randomUUID().toString();
     }

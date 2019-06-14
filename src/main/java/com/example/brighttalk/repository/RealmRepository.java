@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Created by m.karandish on 6/13/2019.
+ * This is our Repository
  */
 @Repository
 public interface RealmRepository extends JpaRepository<Realm, Long> {

@@ -18,6 +18,7 @@ import static org.assertj.core.api.Assertions.*;
 
 /**
  * Created by m.karandish on 6/13/2019.
+ * Thet services related to creating and getting user realm
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BrighttalkApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

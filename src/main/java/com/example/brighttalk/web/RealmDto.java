@@ -26,18 +26,34 @@ public class RealmDto {
         this.description = description;
     }
 
+    /**
+     * Get the name
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Set the name
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Get the description
+     * @return
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Set description
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
