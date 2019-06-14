@@ -9,9 +9,7 @@ import com.example.brighttalk.service.RealmService;
 import com.example.brighttalk.web.RealmDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import org.junit.ClassRule;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +58,12 @@ public class RealmApiControllerTest {
     public RealmApiControllerTest(MediaType mediaType) {
         this.mediaType = mediaType;
     }
+    Realm realmTest;
+    @Before
+    public void init(){
+         realmTest = new Realm("name_Test", "description_Test", "key_Test");
 
+    }
     @Parameterized.Parameters
     public static List<Object[]> params() {
         return Arrays.asList(new Object[][]{
@@ -210,36 +213,4 @@ public class RealmApiControllerTest {
             assertThat(e.getCause().getClass()).isEqualTo(RealmNotFoundException.class);
         }
     }
-
-    @Test
-    public void saveAndReturnDuplicateRealmNameError() throws Exception {
-
-        String id = "5962";
-        RealmDto realmDto = createRealmDto(id);
-        saveFirstRealm(id);
-        given(realmService.save(realmDto)).willThrow(DuplicateRealmNameException.class);
-
-         mockMvc.perform(post(REALM_URL)
-                .content(createRequestBody(realmDto))
-                .accept(mediaType)
-                .contentType(mediaType))
-                .andExpect(status().isBadRequest())
-                .andReturn().getResponse().getContentAsString();
-    }
-
-
-    public void saveFirstRealm(String id) throws Exception {
-        RealmDto realmDto = createRealmDto(id);
-        Realm mockRealm = createRealm(id);
-        given(realmService.save(realmDto)).willReturn(mockRealm);
-
-        mockMvc.perform(post(REALM_URL)
-                .content(createRequestBody(realmDto))
-                .accept(mediaType)
-                .contentType(mediaType))
-                .andExpect(status().isCreated());
-    }
-
-
-
 }
