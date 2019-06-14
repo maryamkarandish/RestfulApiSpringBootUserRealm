@@ -36,6 +36,13 @@ code for generating the encryption key can be stubbed, returning any string.
 - it is deployable with Apache tomcat 9
 - it is tested with unit testing with the coverage of 100% for the classes and 70% for the methods.
 
+## About Project
+---------------------------
+
+To run the project after deploying it with Apache tompcat, use the url as below :
+http://localhost:8080/brighttalk/service/user/realm
+
+
 for more information you can contact:
 --------------------------------------
 maryam.karandish4@gmail.com
